@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.venv
+.mypy_cache/
+
+# Node.js 
+node_modules/
+dist/
+npm-debug.log
+
+# AWS SAM/CloudFormation
+.aws-sam/
+packaged.yaml
+
+# IDE-specific files 
+.vscode/
+.idea/
+
+# Environment variables file
+.env

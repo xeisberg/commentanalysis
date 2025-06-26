@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>講義フィードバック分析ダッシュボード</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="dashboard-header">
+            <h1>講義アンケートコメント分析ダッシュボード</h1>
+        </header>
+
+        <div id="status-area" class="status-message">分析データを読み込み中...</div>
+
+        <section id="overall-stats" class="dashboard-section overall-stats-section">
+            <h2>全体統計</h2>
+            <p id="total-comments" class="stat-item"></p>
+        </section>
+
+        <section id="sentiment-stats" class="dashboard-section data-chart-section">
+            <h2>感情の内訳</h2>
+            <div class="chart-container">
+                <canvas id="sentimentBarChart"></canvas>
+            </div>
+            <div class="table-container">
+                <table id="sentiment-table" class="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th>感情</th>
+                            <th>件数</th>
+                            <th>割合 (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="category-stats" class="dashboard-section data-chart-section">
+            <h2>カテゴリ別内訳</h2>
+            <div class="chart-container">
+                <canvas id="categoryBarChart"></canvas>
+            </div>
+            <div class="table-container">
+                <table id="category-table" class="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th>カテゴリ</th>
+                            <th>件数</th>
+                            <th>割合 (%)</th>
+                            <th>対応推奨</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="importance-charts" class="dashboard-section data-chart-section">
+            <h2>重要度分析</h2>
+            <div class="chart-grid">
+                <div class="chart-container">
+                    <canvas id="importanceDistributionChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="sentimentImportanceChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="high-risk-comments" class="dashboard-section comments-list-section">
+            <h2>ハイリスクコメント</h2>
+            <p id="high-risk-count" class="stat-item"></p>
+            <div class="table-container">
+                <table id="high-risk-table" class="dashboard-table comments-table">
+                    <thead>
+                        <tr>
+                            <th>重要度</th>
+                            <th>コメント</th>
+                            <th>感情</th>
+                            <th>カテゴリ</th>
+                            <th>元データ行</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="top-important-comments" class="dashboard-section comments-list-section">
+            <h2>重要コメント上位</h2>
+            <div class="table-container">
+                <table id="top-important-table" class="dashboard-table comments-table">
+                    <thead>
+                        <tr>
+                            <th>重要度</th>
+                            <th>コメント</th>
+                            <th>感情</th>
+                            <th>カテゴリ</th>
+                            <th>元データ行</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="dashboard-section export-section">
+            <h2>データエクスポート</h2>
+            <button id="export-button" class="action-button primary">分析データをCSVでエクスポート</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

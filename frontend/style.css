@@ -1,0 +1,241 @@
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Modern font stack */
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    min-height: 100vh; /* Ensure body takes full height */
+}
+
+/* CSS Variables for Color Palette */
+:root {
+    --color-primary: #007bff;       /* Blue for headings, buttons */
+    --color-primary-dark: #0056b3; /* Darker blue for hover */
+    --color-accent: #28a745;        /* Green for success/positive */
+    --color-danger: #dc3545;        /* Red for errors/high-risk */
+    --color-warning: #ffc107;       /* Yellow/Orange for warnings/neutral */
+    --color-background: #f8f9fa;    /* Light gray background */
+    --color-surface: #ffffff;       /* White background for cards/container */
+    --color-border: #dee2e6;        /* Light gray border */
+    --color-text-dark: #343a40;     /* Dark text */
+    --color-text-light: #6c757d;    /* Secondary text */
+
+    /* Chart colors are now defined in script.js */
+}
+
+
+.container {
+    max-width: 1200px; /* Make it slightly wider */
+    margin: 20px auto;
+    background-color: var(--color-surface);
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Header Styles */
+.dashboard-header h1 {
+    color: var(--color-primary-dark);
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 15px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2.2em; /* Larger main heading */
+    text-align: center; /* Center the main title */
+}
+
+/* Status Message */
+.status-message {
+    padding: 15px;
+    margin-bottom: 30px;
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.status-message.loading {
+    background-color: #e9f7ef;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.status-message.success {
+     background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.status-message.error {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+
+/* Section Styles */
+.dashboard-section {
+    margin-bottom: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+.dashboard-section:first-of-type {
+    border-top: none;
+     padding-top: 0;
+}
+
+
+.dashboard-section h2 {
+    color: var(--color-primary);
+    border-bottom: none;
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.8em; /* Slightly larger h2 */
+    text-align: center; /* Center section titles */
+}
+
+/* Specific Stats Styles */
+.overall-stats-section .stat-item {
+    font-size: 1.2em; /* Larger overall stat */
+    font-weight: bold;
+    text-align: center; /* Center stat item */
+    margin-bottom: 20px;
+}
+
+
+/* Table and Chart Section Layout */
+.data-table-section,
+.comments-list-section,
+.export-section {
+    /* These sections can be full width or adapt */
+}
+
+.data-chart-section .chart-container {
+     margin-bottom: 20px; /* Space below chart when table is present */
+}
+
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px; /* Space between chart/h2 and table */
+     padding: 1px; /* Add padding to make border visible with overflow */
+}
+
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0; /* Remove top margin as container has it */
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    overflow: hidden;
+    min-width: 600px; /* Ensure tables aren't too squished on smaller screens */
+}
+
+.dashboard-table th,
+.dashboard-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.dashboard-table th {
+    background-color: #e9ecef;
+    font-weight: bold;
+    color: var(--color-text-dark);
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.dashboard-table tbody tr:nth-child(even) {
+    background-color: var(--color-background);
+}
+
+.dashboard-table tbody tr:hover {
+    background-color: #e2e6ea;
+}
+
+/* Handle potentially long comment text */
+.comments-table td {
+    max-width: 500px; /* Increased max width for comments */
+    white-space: normal;
+    word-break: break-word;
+}
+
+/* Style for empty table rows */
+.dashboard-table tbody tr td[colspan] {
+    text-align: center;
+    font-style: italic;
+    color: var(--color-text-light);
+}
+
+
+/* Chart Container Styles */
+.chart-container {
+    position: relative;
+    margin: 0 auto 20px auto; /* Center charts and add vertical space */
+    padding: 15px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    max-width: 800px; /* Wider charts */
+    height: 400px; /* Consistent height (adjust as needed) */
+    min-height: 300px; /* Ensure min height */
+}
+
+/* Chart Grid Layout */
+.chart-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column on small screens */
+    gap: 30px; /* Space between grid items */
+    margin-top: 20px; /* Space below h2 */
+}
+
+@media (min-width: 768px) { /* Two columns on medium screens and up */
+    .chart-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Button Styles */
+.action-button {
+    display: inline-block;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    min-width: 180px; /* Ensure minimum width */
+}
+
+.action-button.primary {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+
+.action-button.primary:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.action-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Export Section */
+.export-section {
+    text-align: center;
+}
