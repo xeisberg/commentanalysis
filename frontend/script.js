@@ -73,8 +73,8 @@ function createSentimentImportanceChart(canvasElement, allMappedCommentsList) {
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    // --- CHANGE LEGEND POSITION TO BOTTOM ---
-                    position: 'bottom', // Changed from 'right'
+                    // --- THIS LINE CONTROLS THE LEGEND POSITION ---
+                    position: 'bottom', // Set legend to appear at the bottom
 
                      labels: {
                          color: '#343a40', // Use hex code directly
@@ -135,7 +135,7 @@ function createSentimentImportanceChart(canvasElement, allMappedCommentsList) {
 
 // ... (rest of your code remains the same)
 // !!! IMPORTANT: Replace with your actual API Gateway Invoke URL !!!
-const API_BASE_URL = 'https://xxxx.execute-api.ap-northeast-1.amazonaws.com/v1';
+const API_BASE_URL = 'https://xx839r420m.execute-api.ap-northeast-1.amazonaws.com/v1';
 
 // Global variables to hold chart instances
 let sentimentBarChart = null;
@@ -549,7 +549,7 @@ function createSentimentBarChart(canvasElement, sentimentCounts, sentimentPercen
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    display: false
+                    display: false // This chart does not display a legend
                 },
                 title: {
                     display: true,
@@ -636,7 +636,7 @@ function createCategoryChart(canvasElement, categoryCounts, categoryPercentages)
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    display: false
+                    display: false // This chart does not display a legend
                 },
                 title: {
                     display: true,
@@ -732,7 +732,7 @@ function createImportanceDistributionChart(canvasElement, allMappedCommentsList)
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    display: false
+                    display: false // This chart does not display a legend
                 },
                 title: {
                     display: true,
